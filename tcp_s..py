@@ -1,14 +1,14 @@
 import socket
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sOcKettt:
-    sOcKettt.bind(('127.0.0.1',50007))
-    sOcKettt.listen(1)
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socKettt:
+    socKettt.bind(('127.0.0.1',50007))
+    socKettt.listen(1)
     while True:
-        connECtion, FROMaddr = sOcKettt.accept()
-        with connECtion:
+        connection, fromaddr = socKettt.accept()
+        with connection:
             while True:
-                ReceiveData = connECtion.recv(1024)
-                if not ReceiveData:
+                receivedata = connection.recv(1024)
+                if not receivedata:
                     break
-                print('data : {}, addr: {}'.format(ReceiveData, FROMaddr))
+                print('data : {}, addr: {}'.format(receivedata, fromaddr))
                 #connECtion.sendall(b'received')
